@@ -1,0 +1,6 @@
+{
+  "asset/app.css": "/asset/app.css",
+  "asset/app.js": "/asset/app.js",
+  "asset/runtime.js": "/asset/runtime.js",
+  "asset/vendors~app.js": "/asset/vendors~app.js"
+}
