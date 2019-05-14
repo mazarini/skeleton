@@ -17,7 +17,7 @@
  * You should have received a copy of the GNU General Public License
  */
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -25,12 +25,10 @@ use Symfony\Component\Routing\Annotation\Route;
 class DefaultController extends AbstractController
 {
     /**
-     * @Route("/", name="home")
+     * @Route("/admin", name="admin")
      */
     public function index()
     {
-        return $this->render('default.html.twig', [
-            'controller_name' => 'DefaultController',
-        ]);
+        return $this->render('back.html.twig', []);
     }
 }

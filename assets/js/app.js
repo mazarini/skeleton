@@ -10,6 +10,8 @@ require('../scss/app.scss');
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 const $ = require('jquery');
+// create global $ and jQuery variables
+global.$ = global.jQuery = $;
 
 require('popper.js')
 require('bootstrap');
