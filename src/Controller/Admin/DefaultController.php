@@ -29,6 +29,6 @@ class DefaultController extends AbstractController
      */
     public function index()
     {
-        return $this->render('back.html.twig', []);
+        return $this->render('admin/index.html.twig', []);
     }
 }

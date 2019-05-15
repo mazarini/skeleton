@@ -11,65 +11,17 @@
         <div class="bg-light border-right" id="sidebar-wrapper">
             <div class="sidebar-heading">Start Bootstrap
             </div>
-            <div class="list-group list-group-flush">
-                <a href="{{ path('admin_index') }}" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-                <a class="list-group-item list-group-item-action bg-light" href="#">Shortcuts</a>
-                <a class="list-group-item list-group-item-action bg-light" href="#">Overview</a>
-                <a class="list-group-item list-group-item-action bg-light" href="#">Events</a>
-                <a class="list-group-item list-group-item-action bg-light" href="#">Profile</a>
-                <a class="list-group-item list-group-item-action bg-light" href="#">Status</a>
-            </div>
+            {% include "admin/_sidebar.html.twig" %}
         </div>
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
-
-                <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{{ path('homepage') }}">Home
-                            </a>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="{{ path('security_logout') }}">Logout
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
-                                Dropdown
-                            </a>
-                            <div aria-labelledby="navbarDropdown" class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+            {% include "admin/_navbar.html.twig" %}
 
             <div class="container-fluid">
-                <h1 class="mt-4">Simple Sidebar</h1>
-                <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on
-                                                                                                                                        larger screens. When toggled using the button below, the menu will change.</p>
-                <p>Make sure to keep all page content within the
-                    <code>#page-content-wrapper</code>. The top navbar is
-                                                                                                                                                                optional, and just for demonstration. Just create an element with the
-                    <code>#menu-toggle</code>
-                    ID which
-                                                                                                                                        will toggle the menu when clicked.</p>
+                {% block page %}{% endblock %}
             </div>
         </div>
         <!-- /#page-content-wrapper -->

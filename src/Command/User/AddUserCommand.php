@@ -56,7 +56,7 @@ class AddUserCommand extends Command
 {
     // to make your command lazily loaded, configure the $defaultName static property,
     // so it will be instantiated only when the command is actually called.
-    protected static $defaultName = 'app:add-user';
+    protected static $defaultName = 'user:add';
 
     /**
      * @var SymfonyStyle

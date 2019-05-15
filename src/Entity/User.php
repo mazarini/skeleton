@@ -142,6 +142,26 @@ class User implements UserInterface, \Serializable
         $this->roles = $roles;
     }
 
+    public function isAdmin(): bool
+    {
+        foreach ($this->getRoles() as $role) {
+            if ('ROLE_ADMIN' === $role) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public function setAdmin(bool $admin): void
+    {
+        if (true === $admin) {
+            $this->roles = ['ROLE_USER', 'ROLE_ADMIN'];
+        } else {
+            $this->roles = ['ROLE_USER'];
+        }
+    }
+
     /**
      * Returns the salt that was originally used to encode the password.
      *
