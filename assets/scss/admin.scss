@@ -1,6 +1,5 @@
-body {
+body.admin {
     overflow-x: hidden;
-}
 
 #sidebar-wrapper {
     min-height: 100vh;
@@ -41,4 +40,5 @@ body {
     #wrapper.toggled #sidebar-wrapper {
         margin-left: -15rem;
     }
+}
 }

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{%- block body_class -%}front
+{%- endblock -%}
+
+{% block body %}
+    <!-- Navigation -->
+    {% include "front/_navbar.html.twig" %}
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div
+            class="row">
+
+            <!-- Post Content Column -->
+            <div class="col-md-8">
+                {% block page %}{% endblock %}
+            </div>
+            <!-- Sidebar Widgets Column -->
+            <div class="col-md-4">
+                {% include "front/_sidebar.html.twig" %}
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        {% include "front/_footer.html.twig" %}
+    </footer>
+{% endblock %}

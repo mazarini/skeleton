@@ -14,7 +14,7 @@
         {% block stylesheets %}{% endblock %}
     </head>
 
-    <body>
+    <body class="{% block body_class %}{% endblock %}">
         {% block static %}{% endblock %}
         {% block body %}{% endblock %}
         {{ encore_entry_script_tags('app') }}

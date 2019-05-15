@@ -1,9 +1,6 @@
-{% extends 'base.html.twig' %}
+{% extends 'front.html.twig' %}
 
-{% block body_id %}login
-{% endblock %}
-
-{% block body %}
+{% block page %}
     {% if error %}
         <div class="alert alert-danger">
             {{ error.messageKey|trans(error.messageData, 'security') }}
@@ -36,6 +33,5 @@
                 </form>
             </div>
         </div>
-
     </div>
 {% endblock %}
