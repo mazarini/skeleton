@@ -1,0 +1,7 @@
+<div id="fixed">
+    <form id="design_form" method='post'>
+        {% include 'design/_select.html.twig' with { 'name': 'page', 'default': current.page ,'values': pages } only %}
+        {% include 'design/_select.html.twig' with { 'name': 'step', 'default': current.step ,'values': steps } only %}
+        {% include 'design/_select.html.twig' with { 'name': 'variant', 'default': current.variant ,'values': variants } only %}
+    </form>
+</div>

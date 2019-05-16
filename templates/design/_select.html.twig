@@ -1,0 +1,7 @@
+<select name="{{ name }}" onchange="submit();">
+    {% for key in values|keys %}
+        <option value="{{ key }}" {% if default == key %} selected="selected" {% endif %}>
+            {{ key|capitalize }}
+        </option>
+    {% endfor %}
+</select>

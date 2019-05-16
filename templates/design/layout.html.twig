@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Design
+{% endblock %}
+
+{% block fixed %}
+    {{ parent() }}
+    {% include 'design/_menu.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% include 'design/_style.html.twig' %}
+{% endblock %}

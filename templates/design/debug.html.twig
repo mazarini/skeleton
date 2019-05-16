@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Error
+{% endblock %}
+
+{% block fixed %}
+    {% include 'design/_menu.html.twig' %}
+{% endblock %}
+
+{% block body %}
+    <div id="debug">
+        <h1>Error</h1>
+        <h2>$base</h2>
+        {{ dump(base) }}
+        <h2>$render</h2>
+        {{ dump(render) }}
+        <h2>$current</h2>
+        {{ dump(current) }}
+        <h2>$pages</h2>
+        {{ dump(pages) }}
+        <h2>$steps</h2>
+        {{ dump(steps) }}
+        <h2>$variants</h2>
+        {{ dump(variants) }}
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {% include 'design/_style.html.twig' %}
+    <style>
+        #debug {
+            margin: 20px;
+        }
+    </style>
+{% endblock %}

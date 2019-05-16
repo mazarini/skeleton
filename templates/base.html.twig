@@ -7,15 +7,16 @@
         <meta content="" name="description">
         <meta content="" name="author">
         <title>
-            {% block title %}Welcome !
-            {% endblock %}
+            {%- block title -%}
+                Welcome !
+            {%- endblock -%}
         </title>
         {{ encore_entry_link_tags('app') }}
         {% block stylesheets %}{% endblock %}
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
-        {% block static %}{% endblock %}
+        {% block fixed %}{% endblock %}
         {% block body %}{% endblock %}
         {{ encore_entry_script_tags('app') }}
         {% block javascripts %}{% endblock %}
