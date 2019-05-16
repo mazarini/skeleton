@@ -17,18 +17,18 @@
  * You should have received a copy of the GNU General Public License
  */
 
-namespace App\Controller\Admin;
+namespace App\Controller\Back;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class DefaultController extends AbstractController
+class IndexController extends AbstractController
 {
     /**
      * @Route("/admin", name="admin_index")
      */
     public function index()
     {
-        return $this->render('admin/index.html.twig', []);
+        return $this->render('back/index.html.twig', []);
     }
 }

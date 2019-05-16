@@ -22,14 +22,14 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class DefaultController extends AbstractController
+class IndexController extends AbstractController
 {
     /**
      * @Route("/", name="homepage")
      */
     public function index()
     {
-        return $this->render('default.html.twig', [
+        return $this->render('front/index.html.twig', [
             'controller_name' => 'DefaultController',
         ]);
     }
