@@ -1,6 +1,11 @@
 {% extends 'design/layout.html.twig' %}
 
-{% block title %}Empty
+{% block title %}
+    Layout|SideBar
+{% endblock %}
+
+{% block modal_content %}
+    <p>This page contains only structure and content of sidebar. Test it with differents height.</p>
 {% endblock %}
 
 {% block header %}{% endblock %}
@@ -16,7 +21,7 @@
             min-height: 56px;
         }
         footer {
-            min-height: 120px;
+            min-height: 56px;
         }
     </style>
 {% endblock %}
