@@ -1,34 +1,43 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Admin
-{% endblock %}
+{%- block title -%}
+    Admin
+{%- endblock -%}
 
-{%- block body_class -%}admin
+{%- block body_class -%}
+    back
 {%- endblock -%}
 
 {% block body %}
-    <div
-        class="d-flex" id="wrapper">
-
-        <!-- Sidebar -->
-        <div class="bg-light border-right" id="sidebar-wrapper">
-            <div class="sidebar-heading">Start Bootstrap
+    <div class="d-flex" id="wrapper">
+        {% block content %}
+            <!-- Sidebar -->
+            <div class="bg-light border-right" id="sidebar-wrapper">
+                <div class="sidebar-heading">
+                    Start Bootstrap
+                </div>
+                <div class="list-group list-group-flush">
+                    {% block sidebar %}
+                        {% include "back/_sidebar.html.twig" %}
+                    {% endblock %}
+                </div>
             </div>
-            {% include "back/_sidebar.html.twig" %}
-        </div>
-        <!-- /#sidebar-wrapper -->
+            <!-- /#sidebar-wrapper -->
 
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-
-            {% include "back/_navbar.html.twig" %}
-
-            <div class="container-fluid">
-                {% block page %}{% endblock %}
+            <!-- Page Content -->
+            <div id="page-content-wrapper">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                    <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
+                    {% block navbar %}
+                        {% include "back/_navbar.html.twig" %}
+                    {% endblock %}
+                </nav>
+                <div class="container-fluid" id="pageId">
+                    {% block page %}{% endblock %}
+                </div>
             </div>
-        </div>
-        <!-- /#page-content-wrapper -->
-
+            <!-- /#page-content-wrapper -->
+        {% endblock %}
     </div>
     <!-- /#wrapper -->
 {% endblock %}

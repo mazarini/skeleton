@@ -1,5 +1,9 @@
+body {
+    min-height: 100vh;
+}
+
 @import "~bootstrap/scss/bootstrap";
 
-@import "admin.scss";
+@import "back.scss";
 
 @import "front.scss";

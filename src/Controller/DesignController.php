@@ -25,46 +25,29 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DesignController extends AbstractController
 {
-    private $pageDefault = '';
-    private $stepDefault = '';
-    private $variantDefault = '';
-
     /**
-     * @Route("/design", name="design")
+     * @Route("/design/{debug}", name="design")
      */
-    public function index(Request $request)
+    public function index(Request $request, string $debug = '')
     {
-        $page = $request->get('page');
-        $pages = $this->getPages();
-        if (isset($pages[$page])) {
-            $currentPage = $page;
-        } else {
-            $currentPage = $this->pageDefault;
-        }
+        $pages = $this->getDirContent('layout', '*');
+        $currentPage = $this->getCurrent($request, 'page', $pages);
 
-        $step = $request->get('step');
-        $steps = $this->getSteps();
-        if (isset($steps[$step])) {
-            $currentStep = $step;
-        } else {
-            $currentStep = $this->stepDefault;
-        }
+        $steps = $this->getDirContent('design', '??-*', '');
+        $currentStep = $this->getCurrent($request, 'step', $steps);
 
-        $variant = $request->get('variant');
-        $variants = $this->getVariants($steps[$currentStep]);
-        if (isset($variants[$variant])) {
-            $currentVariant = $variant;
-        } else {
-            $currentVariant = $this->variantDefault;
-        }
+        $variants = $this->getDirContent('design/'.$steps[$currentStep], '??-*');
+        $currentVariant = $this->getCurrent($request, 'variant', $variants);
 
         $render = 'design/'.$steps[$currentStep].'/'.$variants[$currentVariant];
-        if (!file_exists($this->getParameter('kernel.project_dir').'/templates/'.$render)) {
-            $render = 'design/debug.html.twig';
+        if (file_exists($this->getDir().$render) && '' === $debug) {
+            $template = $render;
+        } else {
+            $template = 'design/debug.html.twig';
         }
 
-        return $this->render($render, [
-            'base' => $pages[$currentPage],
+        return $this->render($template, [
+            'base' => 'layout/'.$pages[$currentPage],
             'render' => $render,
             'current' => ['page' => $currentPage, 'step' => $currentStep, 'variant' => $currentVariant],
             'pages' => $pages,
@@ -73,67 +56,42 @@ class DesignController extends AbstractController
         ]);
     }
 
-    private function getTemplate()
+    private function getDir(string $subDir = ''): string
     {
-        return $this->getParameter('kernel.project_dir').'/templates';
-    }
-
-    private function getDesign()
-    {
-        return $this->getTemplate('kernel.project_dir').'/design';
-    }
-
-    private function getLayout()
-    {
-        return $this->getTemplate('kernel.project_dir').'/layout';
-    }
-
-    private function getPages(): array
-    {
-        $ext = '.html.twig';
-        $dirs = glob($this->getLayout().'/*.html.twig');
-        $pages = [];
-        foreach ($dirs as $dir) {
-            $baseName = basename($dir);
-            $pages[$baseName] = 'layout/'.$baseName;
-            if ('' === $this->pageDefault) {
-                $this->pageDefault = $baseName;
-            }
+        $dir = $this->getParameter('kernel.project_dir').'/templates/';
+        $subDir = trim($subDir, '/\\');
+        if ('' !== $subDir) {
+            $dir .= $subDir.'/';
+        }
+        if (!file_exists($dir)) {
+            throw new \RuntimeException(sprintf('The file "%s" does not exist', $dir));
         }
 
-        return $pages;
+        return $dir;
     }
 
-    private function getSteps(): array
+    private function getDirContent(string $subDir, string $basename, string $ext = '.html.twig'): array
     {
-        $dirs = glob($this->getDesign().'/??-*');
-        $steps = [];
+        $start = mb_strlen($basename) - 1;
+        $root = $this->getDir($subDir).$basename.$ext;
+        $dirs = glob($root);
+        $content = [];
         foreach ($dirs as $dir) {
-            $baseName = basename($dir);
-            $label = mb_substr($baseName, 3);
-            $steps[$label] = $baseName;
-            if ('' === $this->stepDefault) {
-                $this->stepDefault = $label;
-            }
+            $value = basename($dir, $ext);
+            $key = mb_substr($value, $start);
+            $content[$key] = $value.$ext;
+        }
+        if (0 === \count($content)) {
+            throw new \RuntimeException(sprintf('Nothing match with "%s"', $root));
         }
 
-        return $steps;
+        return $content;
     }
 
-    private function getVariants($stepDir)
+    private function getCurrent(Request $request, string $name, array $array): string
     {
-        $ext = '.html.twig';
-        $dirs = glob($this->getDesign().'/'.$stepDir.'/??-*'.$ext);
-        $variants = [];
-        foreach ($dirs as $dir) {
-            $baseName = basename($dir, $ext);
-            $label = mb_substr($baseName, 3);
-            $variants[$label] = $baseName.$ext;
-            if ('' === $this->variantDefault) {
-                $this->variantDefault = $label;
-            }
-        }
+        $key = $request->get($name);
 
-        return $variants;
+        return isset($array[$key]) ? $key : key($array);
     }
 }

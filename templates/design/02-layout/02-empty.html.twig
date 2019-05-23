@@ -1,0 +1,23 @@
+{% extends 'design/layout.html.twig' %}
+
+{% block title %}Empty
+{% endblock %}
+
+{% block header %}{% endblock %}
+{% block navbar %}{% endblock %}
+{% block sidebar %}{% endblock %}
+{% block page %}{% endblock %}
+{% block footer %}{% endblock %}
+
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        nav {
+            min-height: 56px;
+        }
+        footer {
+            min-height: 120px;
+        }
+    </style>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'design/layout.html.twig' %}
+
+{% block title %}Scroll
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        body.front #page {
+            min-height: 120vh;
+        }
+        body.back #page {
+            min-height: 120vh;
+        }
+    </style>
+{% endblock %}

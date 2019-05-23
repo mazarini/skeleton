@@ -1,0 +1,27 @@
+{% extends 'design/layout.html.twig' %}
+
+{%- block title -%}
+    Asset loaded
+{%- endblock -%}
+
+{% block body %}{% endblock %}
+
+{% block modal_content %}
+    <p>Check that the CSS are well loaded; this div must be well displayed in the center of the screen.</p>
+{% endblock %}
+
+{% block modal_footer_container %}{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        var element = document.getElementById('modalId');
+        element.classList.add('show');
+        element.style.display = "block";
+    </script>
+{% endblock %}

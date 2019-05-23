@@ -1,6 +1,30 @@
-{% extends 'base.html.twig' %}
+{% extends base %}
 
-{% block title %}Design
+{% block title %}
+    Design
+{% endblock %}
+
+{%- block body_data_target -%}
+    #modalId
+{%- endblock -%}
+
+{%- block body_data_toggle -%}
+    modal
+{%- endblock -%}
+
+{%- block modal_title -%}
+    Template
+    {{ current.page }}.html.twig for
+    {{ current.step }}/{{ current.variant }}
+{%- endblock -%}
+
+{% block modal_footer %}
+    <div aria-label="Basic example" class="btn-group" role="group">
+        <button class="btn btn-secondary" onclick="changeBody(event,0);" type="button">Default</button>
+        <button class="btn btn-secondary" onclick="changeBody(event,50);" type="button">50%</button>
+        <button class="btn btn-secondary" onclick="changeBody(event,100);" type="button">100%</button>
+        <button class="btn btn-secondary" onclick="changeBody(event,150);" type="button">150%</button>
+    </div>
 {% endblock %}
 
 {% block fixed %}
@@ -11,4 +35,24 @@
 {% block stylesheets %}
     {{ parent() }}
     {% include 'design/_style.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(document).ready(function () {
+            $('#modalId').modal('show');
+        });
+
+        function changeBody(event, height) {
+            if (height == 0) {
+                $('#pageId').removeAttr('style');
+                $('body').removeAttr('style');
+            } else {
+                $('#pageId').attr('style', 'height: ' + height + 'vh;');
+                $('body').attr('style', 'height: ' + height + 'vh;');
+            }
+        }
+    </script>
+
 {% endblock %}

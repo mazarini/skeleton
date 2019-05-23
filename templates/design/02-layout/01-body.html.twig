@@ -1,17 +1,17 @@
 {% extends 'design/layout.html.twig' %}
 
-{% block title %}Asset
+{% block title %}Empty
+{% endblock %}
+
+{% block modal_content %}
+    <p>This page contains only the body tag. Test it with differents height of body.</p>
+
 {% endblock %}
 
 {% block body %}{% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
-    <style>
-        body {
-            min-height: 130vw;
-        }
-    </style>
 {% endblock %}
 
 {% block javascripts %}
