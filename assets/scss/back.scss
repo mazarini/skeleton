@@ -13,6 +13,10 @@ body.back {
         .list-group {
             width: 15rem;
         }
+
+        .list-group-item:last-child {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+        }
     }
 
     #sidebar-wrapper,

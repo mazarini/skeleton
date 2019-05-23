@@ -1,0 +1,19 @@
+<!-- Modal -->
+<div class="card my-4">
+    {%- block title_container -%}
+        <h5 class="card-header">
+            {% block title %}{% endblock %}
+        </h5>
+    {%- endblock -%}
+    {% block content_container %}
+        <div class="card-body">
+            {% block content %}{% endblock %}
+        </div>
+    {% endblock %}
+    {% block footer_container %}
+        <div class="card-footer">
+            {% block footer %}{% endblock %}
+        </div>
+    {% endblock %}
+</div>
+<!-- /Modal -->
