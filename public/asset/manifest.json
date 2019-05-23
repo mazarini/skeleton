@@ -2,5 +2,10 @@
   "asset/app.css": "/asset/app.css",
   "asset/app.js": "/asset/app.js",
   "asset/runtime.js": "/asset/runtime.js",
-  "asset/vendors~app.js": "/asset/vendors~app.js"
+  "asset/vendors~app.js": "/asset/vendors~app.js",
+  "asset/fonts/fontawesome-webfont.eot": "/asset/fonts/fontawesome-webfont.674f50d2.eot",
+  "asset/fonts/fontawesome-webfont.woff2": "/asset/fonts/fontawesome-webfont.af7ae505.woff2",
+  "asset/fonts/fontawesome-webfont.ttf": "/asset/fonts/fontawesome-webfont.b06871f2.ttf",
+  "asset/fonts/fontawesome-webfont.woff": "/asset/fonts/fontawesome-webfont.fee66e71.woff",
+  "asset/images/fontawesome-webfont.svg": "/asset/images/fontawesome-webfont.912ec66d.svg"
 }

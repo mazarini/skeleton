@@ -16,8 +16,7 @@ body.back {
     }
 
     #sidebar-wrapper,
-    #page-content-wrapper,
-    .navbar {
+    #page-content-wrapper {
         -webkit-transition: margin .25s ease-out;
         -moz-transition: margin .25s ease-out;
         -o-transition: margin .25s ease-out;
@@ -35,8 +34,14 @@ body.back {
 
         }
 
-        .navbar {
-            margin-left: 0rem;
+        #menu-toggle {
+            .fa-arrow-left {
+                display: none;
+            }
+
+            .fa-arrow-right {
+                display: inline-block;
+            }
         }
 
         #wrapper.toggled {
@@ -48,8 +53,14 @@ body.back {
                 margin-left: -15rem; // masqued by under sidebar
             }
 
-            .navbar {
-                margin-left: 15rem;
+            #menu-toggle {
+                .fa-arrow-left {
+                    display: inline-block;
+                }
+
+                .fa-arrow-right {
+                    display: none;
+                }
             }
         }
     }
@@ -62,7 +73,16 @@ body.back {
         #page-content-wrapper {
             min-width: 0;
             width: 100%;
+        }
 
+        #menu-toggle {
+            .fa-arrow-left {
+                display: inline-block;
+            }
+
+            .fa-arrow-right {
+                display: none;
+            }
         }
 
         #wrapper.toggled {
@@ -73,6 +93,29 @@ body.back {
             #page-content-wrapper {
                 margin-left: 0;
             }
+
+            #menu-toggle {
+                .fa-arrow-left {
+                    display: none;
+                }
+
+                .fa-arrow-right {
+                    display: inline-block;
+                }
+            }
         }
+    }
+
+    #menu-toggle {
+        float: right;
+        margin-right: -40px;
+        margin-top: 0;
+        height: 56px;
+        width: 40px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 28px;
+        border-top-right-radius: 28px;
+        border-top-left-radius: 0;
+        border-color: rgb(222, 226, 230);
     }
 }

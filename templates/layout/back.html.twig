@@ -13,6 +13,10 @@
         {% block content %}
             <!-- Sidebar -->
             <div class="bg-light border-right" id="sidebar-wrapper">
+                <button class="btn btn-outline-secondary" id="menu-toggle">
+                    <i class="fa fa-arrow-right"></i>
+                    <i class="fa fa-arrow-left"></i>
+                </button>
                 <div class="sidebar-heading">
                     Start Bootstrap
                 </div>
@@ -27,8 +31,8 @@
             <!-- Page Content -->
             <div id="page-content-wrapper">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                    <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
                     {% block navbar %}
+                        <span></span>
                         {% include "back/_navbar.html.twig" %}
                     {% endblock %}
                 </nav>
