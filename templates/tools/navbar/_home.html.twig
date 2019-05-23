@@ -1,0 +1,9 @@
+{% set path = path('homepage') %}
+<li class="nav-item{% if ( path == currentPath ) %} active{% endif %}">
+    <a class="nav-link" href="{{ path }}">
+        Home
+        {%- if ( path == currentPath ) -%}
+            <span class="sr-only">(current)</span>
+        {%- endif -%}
+    </a>
+</li>

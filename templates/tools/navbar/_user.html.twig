@@ -1,0 +1,23 @@
+{% if ( app.user ) %}
+    <li class="nav-item dropdown">
+        <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
+            {{ app.user.fullName }}
+        </a>
+        <div aria-labelledby="navbarDropdown" class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" href="{{ path('security_logout') }}">Logout</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Profil</a>
+            <a class="dropdown-item" href="#">Change password</a>
+        </div>
+    </li>
+{% else %}
+    {% set path = path('security_login') %}
+    <li class="nav-item{% if ( path == currentPath ) %} active{% endif %}">
+        <a class="nav-link" href="{{ path }}">
+            Login
+            {%- if ( path == currentPath ) -%}
+                <span class="sr-only">(current)</span>
+            {%- endif -%}
+        </a>
+    </li>
+{% endif %}

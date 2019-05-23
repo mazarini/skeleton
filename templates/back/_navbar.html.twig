@@ -1,30 +1,9 @@
-<button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
-    <span class="navbar-toggler-icon"></span>
-</button>
-
-<div class="collapse navbar-collapse" id="navbarSupportedContent">
+{% include 'tools/navbar/_icon.html.twig' %}
+<div class="collapse navbar-collapse" id="navbar">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
-            <a class="nav-link" href="{{ path('homepage') }}">Home
-            </a>
-        </li>
-        <li>
-            <a class="nav-link" href="{{ path('security_logout') }}">Logout
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-            <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
-                Dropdown
-            </a>
-            <div aria-labelledby="navbarDropdown" class="dropdown-menu dropdown-menu-right">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-        </li>
+        {% include 'tools/navbar/_home.html.twig' %}
+        {% include 'tools/navbar/_design.html.twig' %}
+        {% include 'tools/navbar/_admin.html.twig' %}
+        {% include 'tools/navbar/_user.html.twig' %}
     </ul>
 </div>

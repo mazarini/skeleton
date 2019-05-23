@@ -1,31 +1,13 @@
 <a class="navbar-brand" href="#">Start Bootstrap</a>
-<button aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarResponsive" data-toggle="collapse" type="button">
-    <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarResponsive">
+{% include 'tools/navbar/_icon.html.twig' %}
+<div class="collapse navbar-collapse" id="navbar">
     {% block navbar %}
         <ul class="navbar-nav ml-auto">
             {% block navbar_items %}
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('admin_index') }}">
-                        Admin
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
+                {% include 'tools/navbar/_home.html.twig' %}
+                {% include 'tools/navbar/_design.html.twig' %}
+                {% include 'tools/navbar/_admin.html.twig' %}
+                {% include 'tools/navbar/_user.html.twig' %}
             {% endblock navbar_items %}
         </ul>
     {% endblock navbar %}

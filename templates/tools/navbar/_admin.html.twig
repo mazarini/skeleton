@@ -1,0 +1,11 @@
+{% set path = path('admin_index') %}
+{%- if ( not app.user or is_granted('ROLE_ADMIN') ) -%}
+    <li class="nav-item{% if ( path == currentPath ) %} active{% endif %}">
+        <a class="nav-link" href="{{ path }}">
+            Admin
+            {%- if ( path == currentPath ) -%}
+                <span class="sr-only">(current)</span>
+            {%- endif -%}
+        </a>
+    </li>
+{% endif %}

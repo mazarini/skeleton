@@ -1,15 +1,14 @@
 {% extends 'design/layout.html.twig' %}
 
 {% block title %}
-    Layout|Empty
+    Layout|Navbar
 {% endblock %}
 
 {% block modal_content %}
-    <p>This page contains only structure without content. Test it with differents height.</p>
+    <p>This page contains only structure and content of navbar. Test it with differents height.</p>
 {% endblock %}
 
 {% block header %}{% endblock %}
-{% block navbar %}{% endblock %}
 {% block sidebar %}{% endblock %}
 {% block page %}{% endblock %}
 {% block footer %}{% endblock %}
@@ -18,9 +17,6 @@
 {% block stylesheets %}
     {{ parent() }}
     <style>
-        nav {
-            min-height: 56px;
-        }
         footer {
             min-height: 120px;
         }
