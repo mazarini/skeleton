@@ -4,16 +4,12 @@
     Layout|Body
 {% endblock %}
 
-{% block modal_content %}
-    <p>This page contains only the body tag. Test it with differents height of body.</p>
-{% endblock %}
-
 {% block body %}{% endblock %}
 
-{% block stylesheets %}
-    {{ parent() }}
-{% endblock %}
-
-{% block javascripts %}
-    {{ parent() }}
+{% block design_modal %}
+    {% embed 'design/_modal.html.twig' %}
+        {% block message %}
+            <p>This page contains only the body tag.</p>
+        {% endblock %}
+    {% endembed %}
 {% endblock %}

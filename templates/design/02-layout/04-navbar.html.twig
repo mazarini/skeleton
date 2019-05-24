@@ -4,8 +4,13 @@
     Layout|Navbar
 {% endblock %}
 
-{% block modal_content %}
-    <p>This page contains only structure and content of navbar. Test it with differents height.</p>
+{% block design_stylesheets %}
+    {{ parent() }}
+    <style>
+        footer {
+            min-height: 56px;
+        }
+    </style>
 {% endblock %}
 
 {% block header %}{% endblock %}
@@ -13,12 +18,10 @@
 {% block page %}{% endblock %}
 {% block footer %}{% endblock %}
 
-
-{% block stylesheets %}
-    {{ parent() }}
-    <style>
-        footer {
-            min-height: 56px;
-        }
-    </style>
+{% block design_modal %}
+    {% embed 'design/_modal.html.twig' %}
+        {% block message %}
+            <p>This page contains only structure and content of navbar.</p>
+        {% endblock %}
+    {% endembed %}
 {% endblock %}

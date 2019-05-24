@@ -4,17 +4,7 @@
     Layout|SideBar
 {% endblock %}
 
-{% block modal_content %}
-    <p>This page contains only structure and content of sidebar. Test it with differents height.</p>
-{% endblock %}
-
-{% block header %}{% endblock %}
-{% block navbar %}{% endblock %}
-{% block page %}{% endblock %}
-{% block footer %}{% endblock %}
-
-
-{% block stylesheets %}
+{% block design_stylesheets %}
     {{ parent() }}
     <style>
         nav {
@@ -24,4 +14,17 @@
             min-height: 56px;
         }
     </style>
+{% endblock %}
+
+{% block header %}{% endblock %}
+{% block navbar %}{% endblock %}
+{% block page %}{% endblock %}
+{% block footer %}{% endblock %}
+
+{% block design_modal %}
+    {% embed 'design/_modal.html.twig' %}
+        {% block message %}
+            <p>This page contains only structure and content of sidebar.</p>
+        {% endblock %}
+    {% endembed %}
 {% endblock %}

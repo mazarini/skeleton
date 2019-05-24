@@ -1,25 +1,15 @@
 {% extends 'design/layout.html.twig' %}
 
-{% block title %}Asset
+{% block title %}
+    jQuery actived
 {% endblock %}
 
 {% block body %}{% endblock %}
 
-{% block modal_content %}
-    Check that javascript is loaded and that jQuery is enabled; the "close" button should work.
-{% endblock %}
-
-{% block modal_footer_container %}{% endblock %}
-
-{% block stylesheets %}
-    {{ parent() }}
-{% endblock %}
-
-{% block javascripts %}
-    {{ parent() }}
-    <script>
-        var element = document.getElementById('modalId');
-        element.classList.add('show');
-        element.style.display = "block";
-    </script>
+{% block design_modal %}
+    {% embed 'design/_modal.html.twig' %}
+        {% block message %}
+            <p>Check that javascript is loaded and that jQuery is enabled; the "close" button should work.</p>
+        {% endblock %}
+    {% endembed %}
 {% endblock %}

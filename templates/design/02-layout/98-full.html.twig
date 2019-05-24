@@ -4,10 +4,10 @@
     Layout|Full
 {% endblock %}
 
-{% block modal_content %}
-    <p>This page contains page without content. Test it with differents height.</p>
-{% endblock %}
-
-{% block stylesheets %}
-    {{ parent() }}
+{% block design_modal %}
+    {% embed 'design/_modal.html.twig' %}
+        {% block message %}
+            <p>This page contains page without content.</p>
+        {% endblock %}
+    {% endembed %}
 {% endblock %}

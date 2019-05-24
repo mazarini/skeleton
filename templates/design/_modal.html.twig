@@ -1,0 +1,63 @@
+{% extends 'bootstrap/_modal.html.twig' %}
+
+{% block title %}
+    {% include 'design/_menu.html.twig' %}
+{% endblock %}
+
+{% block content %}
+    {% block message %}{% endblock %}
+    <hr/>
+    <p>Test it with differents height of page and body.</p>
+{% endblock %}
+
+{% block footer %}
+    <div aria-label="Basic example" class="btn-group" role="group">
+        <button class="btn btn-secondary" onclick="changeBody(event,0);" type="button">Default</button>
+        <button class="btn btn-secondary" onclick="changeBody(event,50);" type="button">50%</button>
+        <button class="btn btn-secondary" onclick="changeBody(event,100);" type="button">100%</button>
+        <button class="btn btn-secondary" onclick="changeBody(event,150);" type="button">150%</button>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    {{ parent() }}
+    <script>
+        function changeBody(event, height) {
+            if (height == 0) {
+                $('#pageId').removeAttr('style');
+                $('body').removeAttr('style');
+            } else {
+                $('#pageId').attr('style', 'height: ' + height + 'vh;');
+                $('body').attr('style', 'height: ' + height + 'vh;');
+            }
+            $('#modalId').modal('hide');
+        }
+
+        $(document).ready(function () {
+
+            if (!$) {
+                var element = document.getElementById('modalId');
+                element.classList.add('show');
+                element.style.display = "block";
+            };
+
+            $('#modalId').modal('show');
+
+            $("body").keyup(function (e) {
+                switch (event.which) {
+                    case 13:
+                        $('#modalId').modal('show');
+                        break;
+                    case 27:
+                        $('#modalId').modal('hide');
+                        break;
+                    case 32:
+                        $('#modalId').modal('toggle');
+                        break;
+                    default:
+                        console.log('touche : ', event.which)
+                };
+            });
+        });
+    </script>
+{% endblock %}

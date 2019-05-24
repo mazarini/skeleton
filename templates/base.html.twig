@@ -15,43 +15,12 @@
         {% block stylesheets %}{% endblock %}
     </head>
 
-    <body class="{% block body_class %}{% endblock %}" data-target="{% block body_data_target %}{% endblock %}" data-toggle="{% block body_data_toggle %}{% endblock %}">
+    <body class="{% block body_class %}{% endblock %}">
         {% block fixed %}{% endblock %}
-        {% block modal %}
-            <!-- Modal -->
-            <div aria-hidden="true" aria-labelledby="modalTitleId" class="modal fade" id="modalId" role="dialog" tabindex="-1">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        {% block modal_header_container %}
-                            <div class="modal-header">
-                                {% block modal_header %}
-                                    <h5 class="modal-title" id="modalTitleId">
-                                        {% block modal_title %}{% endblock %}
-                                    </h5>
-                                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                {% endblock %}
-                            </div>
-                        {% endblock %}
-                        {% block modal_content_container %}
-                            <div class="modal-body">
-                                {% block modal_content %}{% endblock %}
-                            </div>
-                        {% endblock %}
-                        {% block modal_footer_container %}
-                            <div class="modal-footer">
-                                {% block modal_footer %}{% endblock %}
-                            </div>
-                        {% endblock %}
-                    </div>
-                </div>
-            </div>
-            <!-- / Modal -->
-        {% endblock %}
         {% block body %}{% endblock %}
         {{ encore_entry_script_tags('app') }}
         {% block javascripts %}{% endblock %}
+        {% block modal %}{% endblock %}
     </body>
 
 </html>
