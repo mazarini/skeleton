@@ -35,7 +35,10 @@
 
     <a class="btn btn-outline-dark" href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
 
-    <button class="btn btn-outline-dark" onclick="$('#user_delete').submit()">Delete</button>
+    <button class="btn btn-outline-dark" onclick="$('#modalId').modal('show')">Delete</button>
 
-    {{ include('user/_delete_form.html.twig') }}
+{% endblock %}
+
+{% block modal %}
+    {% embed 'tools/modal/_delete_form.html.twig' with { 'path': 'user_delete', 'id': user.id } only %}{% endembed %}
 {% endblock %}

@@ -19,17 +19,13 @@
 
 namespace App\Repository;
 
-use App\Entity\User;
-use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
+use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Pagerfanta\Pagerfanta;
 
-class UserRepository extends PaginatorRepositoryAbstract
+abstract class PaginatorRepositoryAbstract extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
-    {
-        parent::__construct($registry, User::class);
-    }
-
     public function getPage(int $page): Pagerfanta
     {
         $qb = $this->createQueryBuilder('u');
@@ -37,8 +33,14 @@ class UserRepository extends PaginatorRepositoryAbstract
         return $this->createPaginator($qb->getQuery(), $page);
     }
 
-    protected function getMax(): int
+    abstract protected function getMax(): int;
+
+    protected function createPaginator(Query $query, int $page): Pagerfanta
     {
-        return User::MAX;
+        $paginator = new Pagerfanta(new DoctrineORMAdapter($query));
+        $paginator->setMaxPerPage($this->getMax());
+        $paginator->setCurrentPage($page);
+
+        return $paginator;
     }
 }

@@ -1,0 +1,11 @@
+{{ form_start(form) }}
+{{ form_widget(form) }}
+{% block buttons %}
+    {% block buttons_validate %}
+        <button class="btn btn-outline-dark">{{ label_validate|default('Validate') }}</button>
+    {% endblock %}
+    {% block buttons_cancel %}
+        <a class="btn btn-outline-dark" href="{{ path_cancel }}">{{ label_cancel|default('Cancel') }}</a>
+    {% endblock %}
+{% endblock %}
+{{ form_end(form) }}

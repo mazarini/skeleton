@@ -1,0 +1,18 @@
+{% extends 'bootstrap/_modal.html.twig' %}
+
+{% block header_container %}{% endblock %}
+
+{% block content %}
+    {% block message %}
+        <p>Confirm delete?</p>
+    {% endblock %}
+{% endblock %}
+
+{% block footer %}
+    <form method="post" action="{{ path(path, {'id': id}) }}" id="deleteId">
+        <button class="btn btn-outline-dark" onclick="$('#modalId').modal('hide');" type="button">Cancel</button>
+        <button class="btn btn-outline-dark" type="submit">Valid</button>
+        <input name="_method" type="hidden" value="DELETE">
+        <input name="_token" type="hidden" value="{{ csrf_token('delete' ~ id) }}">
+    </form>
+{% endblock %}

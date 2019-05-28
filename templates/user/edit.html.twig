@@ -6,6 +6,6 @@
 {% block page %}
     <h1>Edit User</h1>
 
-    {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
+    {% embed 'tools/_form.html.twig' with {'form': form, 'path_cancel': path('user_show', {id: user.id}), 'label_validate': 'Update'} only %}{% endembed %}
 
 {% endblock %}

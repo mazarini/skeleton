@@ -45,8 +45,18 @@ class CrudController extends AbstractController
      */
     public function index(UserRepository $userRepository): Response
     {
+        return $this->page($userRepository, 1);
+    }
+
+    /**
+     * @Route("/page-{page}.html", name="user_page", methods={"GET"})
+     */
+    public function page(UserRepository $userRepository, int $page = 1): Response
+    {
+        $users = $userRepository->getPage($page);
+
         return $this->render('user/index.html.twig', [
-            'users' => $userRepository->findAll(),
+            'users' => $users,
         ]);
     }
 

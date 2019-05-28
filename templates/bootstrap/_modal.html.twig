@@ -1,12 +1,12 @@
 <!-- Modal -->
-{% set id = id|default('modalId') %}
-<div aria-hidden="true" aria-labelledby="{{ id }}Title" class="modal fade" id="{{ id }}" role="dialog" tabindex="-1">
+{% set modalId = modalId|default('modalId') %}
+<div aria-hidden="true" aria-labelledby="{{ modalId }}Title" class="modal fade" id="{{ modalId }}" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             {% block header_container %}
                 <div class="modal-header">
                     {% block header %}
-                        <h5 class="modal-title" id="{{ id }}Title">
+                        <h5 class="modal-title" id="{{ modalId }}Title">
                             {% block title %}{% endblock %}
                         </h5>
                         <button aria-label="Close" class="close" data-dismiss="modal" type="button">

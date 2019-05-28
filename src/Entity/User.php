@@ -30,6 +30,8 @@ class User implements UserInterface, \Serializable
 {
     use UserTrait;
 
+    public const MAX = 10;
+
     /**
      * Returns the roles or permissions granted to the user for security.
      */
