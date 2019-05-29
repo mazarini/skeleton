@@ -55,6 +55,9 @@ dbinit:
 
 dbreset: dbdrop dbinit
 
+fixtures:
+	bin/console doctrine:fixtures:load
+
 ############################################
 #               T R A V I S                #
 ############################################
