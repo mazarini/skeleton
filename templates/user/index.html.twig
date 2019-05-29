@@ -4,39 +4,44 @@
 {% endblock %}
 
 {% block page %}
+
     <h1>User index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>FullName</th>
-                <th>Username</th>
-                <th>Email</th>
-                <th>Admin</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for user in users %}
-                <tr>
-                    <td>{{ user.id }}</td>
-                    <td>{{ user.fullName }}</td>
-                    <td>{{ user.username }}</td>
-                    <td>{{ user.email }}</td>
-                    <td>{{ user.admin ? 'Yes' : '' }}</td>
-                    <td>
-                        <a class="btn btn-outline-dark btn-sm" href="{{ path('user_show', {'id': user.id}) }}">show</a>
-                        <a class="btn btn-outline-dark btn-sm" href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
-                    </td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="7">no records found</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    {% embed 'tools/_table.html.twig' with {'entities': users,'page_route': 'user_page'} only %}
 
-    <a class="btn btn-outline-dark" href="{{ path('user_new') }}">Create new</a>
+        {% block header %}
+            <th>Id</th>
+            <th>FullName</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Admin</th>
+            <th>actions</th>
+        {% endblock %}
+
+        {% block ligne %}
+            <td>{{ entity.id }}</td>
+            <td>{{ entity.fullName }}</td>
+            <td>{{ entity.username }}</td>
+            <td>{{ entity.email }}</td>
+            <td>{{ entity.admin ? 'Yes' : '' }}</td>
+            <td>
+                <a class="btn btn-outline-dark btn-sm" href="{{ path('user_show', {'id': entity.id}) }}">show</a>
+                <a class="btn btn-outline-dark btn-sm" href="{{ path('user_edit', {'id': entity.id}) }}">edit</a>
+            </td>
+        {% endblock %}
+
+        {% block nothing %}
+            <td colspan="6">no records found</td>
+
+        {% endblock %}
+
+        {% block footer %}
+            <td colspan="5"></td>
+            <td>
+                <a class="btn btn-outline-dark" href="{{ path('user_new') }}">Create new</a>
+            </td>
+        {% endblock %}
+
+    {% endembed %}
+
 {% endblock %}

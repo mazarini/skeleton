@@ -1,0 +1,30 @@
+<table class="table">
+    <thead>
+        <tr>
+            {% block header %}{% endblock %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for entity in entities %}
+            <tr>
+                {% block ligne %}{% endblock %}
+            </tr>
+        {% else %}
+            <tr>
+                {% block nothing %}{% endblock %}
+            </tr>
+        {% endfor %}
+    </tbody>
+    <tfooter>
+        <tr>
+            {% block footer %}{% endblock %}
+        </tr>
+    </tfooter>
+</table>
+{% block pagination %}
+    {% if entities.haveToPaginate %}
+        <div class="navigation text-center">
+            {{ pagerfanta(entities, 'twitter_bootstrap4_translated', {routeName: page_route, css_container_class: 'pagination justify-content-center'}) }}
+        </div>
+    {% endif %}
+{% endblock %}
