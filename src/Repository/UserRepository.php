@@ -32,7 +32,8 @@ class UserRepository extends PaginatorRepositoryAbstract
 
     public function getPage(int $page): Pagerfanta
     {
-        $qb = $this->createQueryBuilder('u');
+        $qb = $this->createQueryBuilder('u')
+        ->orderBy('u.username', 'ASC');
 
         return $this->createPaginator($qb->getQuery(), $page);
     }
