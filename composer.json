@@ -18,26 +18,26 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "sensio/framework-extra-bundle": "^5.3",
-        "symfony/console": "4.2.*",
-        "symfony/dotenv": "4.2.*",
+        "symfony/console": "^4.3",
+        "symfony/dotenv": "^4.3",
         "symfony/flex": "^1.2",
-        "symfony/form": "4.2.*",
-        "symfony/framework-bundle": "4.2.*",
+        "symfony/form": "^4.3",
+        "symfony/framework-bundle": "^4.3",
         "symfony/orm-pack": "^1.0",
-        "symfony/security-bundle": "4.2.*",
+        "symfony/security-bundle": "^4.3",
         "symfony/swiftmailer-bundle": "^3.2",
-        "symfony/twig-bundle": "4.2.*",
-        "symfony/validator": "4.2.*",
-        "symfony/yaml": "4.2.*",
+        "symfony/twig-bundle": "^4.3",
+        "symfony/validator": "4.3",
+        "symfony/yaml": "^4.3",
         "white-october/pagerfanta-bundle": "^1.2"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.1",
         "joshtronic/php-loremipsum": "^1.0",
         "symfony/maker-bundle": "^1.11",
-        "symfony/phpunit-bridge": "4.2.*",
+        "symfony/phpunit-bridge": "^4.3",
         "symfony/profiler-pack": "^1.0",
-        "symfony/web-server-bundle": "4.2.*",
+        "symfony/web-server-bundle": "^4.3",
         "symfony/webpack-encore-bundle": "^1.5"
     },
     "config": {
@@ -85,7 +85,7 @@
         },
         "symfony": {
             "allow-contrib": true,
-            "require": "4.2.*"
+            "require": "^4.3"
         }
     }
 }
