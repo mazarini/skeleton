@@ -1,0 +1,81 @@
+{
+    "name": "mazarini/skeleton",
+    "description": "Project's skeleton.",
+    "type": "project",
+    "minimum-stability": "dev",
+    "extra": {
+        "symfony": {
+            "allow-contrib": false,
+            "require": "6.3.*"
+        }
+    },
+    "require": {
+        "php": ">=8.1",
+        "ext-ctype": "*",
+        "ext-iconv": "*",
+        "symfony/console": "^6.3|^7.0",
+        "symfony/dotenv": "^6.3|^7.0",
+        "symfony/runtime": "^6.3|^7.0",
+        "symfony/yaml": "^6.3|^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "symfony/browser-kit": "6.3.*",
+        "symfony/css-selector": "6.3.*",
+        "symfony/flex": "^2",
+        "symfony/framework-bundle": "^6.3|^7.0",
+        "symfony/maker-bundle": "^1.51",
+        "symfony/phpunit-bridge": "^6.3"
+    },
+    "license": "GPL-3.0-or-later",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Mazarini\\Skeleton\\": "lib/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\": "src/",
+            "App\\Tests\\": "tests/"
+        }
+    },
+    "replace": {
+        "symfony/polyfill-ctype": "*",
+        "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-php72": "*",
+        "symfony/polyfill-php73": "*",
+        "symfony/polyfill-php74": "*",
+        "symfony/polyfill-php80": "*",
+        "symfony/polyfill-php81": "*"
+    },
+    "scripts": {
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+        },
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ]
+    },
+    "conflict": {
+        "symfony/symfony": "*"
+    },
+    "authors": [
+        {
+            "name": "Mazarini",
+            "email": "mazarini@protonmail.com"
+        }
+    ],
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true,
+            "symfony/flex": true,
+            "symfony/runtime": true
+        },
+        "sort-packages": true
+    }
+}
