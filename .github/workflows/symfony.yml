@@ -21,7 +21,7 @@ jobs:
     strategy:
       matrix:
         operating-system: ["ubuntu-latest"]
-        sf-version: ["6.4.*"]
+        sf-version: ["6.3.*","6.4.*"]
         php-version: ["8.2"]
     steps:
     - uses: shivammathur/setup-php@v2
@@ -36,12 +36,16 @@ jobs:
         key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
         restore-keys: |
           ${{ runner.os }}-composer-
-    - name: Install Dependencies
-      run: composer update --no-ansi --no-interaction --no-scripts --no-progress -v
-    - name: Create Database
+    - name: Install Dependencies.
+      run: |
+        composer config extra.symfony.require ${{ matrix.sf-version }}
+        composer update --no-ansi --no-interaction --no-scripts --no-progress -v
+    - name: Init and control
       run: |
         mkdir -p data
         touch data/database.sqlite
+        php -m
+        bin/console about
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
         DATABASE_URL: sqlite:///%kernel.project_dir%/data/database.sqlite
