@@ -1,7 +1,7 @@
 ###> local ###
 /bin/console
 /bin/phpunit
-/composer.lock
+#composer.lock
 /config/*
 /phpunit.xml.dist
 /public/index.php
