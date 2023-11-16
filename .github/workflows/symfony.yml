@@ -16,12 +16,12 @@ permissions:
 
 jobs:
   symfony-tests:
-    name: "${{ matrix.operating-system }} / PHP ${{ matrix.php-version }} / SYMFONY ${{ matrix.sf-version }}"
+    name: "PHP ${{ matrix.php-version }} / SF ${{ matrix.sf-version }} / ${{ matrix.operating-system }}"
     runs-on: ${{ matrix.operating-system }}
     strategy:
       matrix:
         operating-system: ["ubuntu-latest"]
-        sf-version: ["6.3.*","6.4.*"]
+        sf-version: ["6.3.*","6.4.*","7.0.*","7.1.*"]
         php-version: ["8.2"]
     steps:
     - uses: shivammathur/setup-php@v2
