@@ -39,7 +39,7 @@ jobs:
     - name: Install Dependencies
       run: |
         composer config extra.symfony.require ${{ matrix.sf-version }}
-        composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+        composer update -q --no-ansi --no-interaction --no-scripts --no-progress
     - name: Create Database
       run: |
         mkdir -p data
