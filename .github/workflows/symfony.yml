@@ -29,13 +29,13 @@ jobs:
           php-version: ${{ matrix.php-version }}
       - uses: actions/checkout@v3
       - name: PHP ${{ matrix.php-version }} extensions
+        id: composer-cache
         run: |
           php -m
       - name: Get Composer Cache Directory
         run: |
           echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
       - name: Cache Composer packages
-        id: composer-cache
         uses: actions/cache@v3
         with:
           path: ${{ steps.composer-cache.outputs.dir }}

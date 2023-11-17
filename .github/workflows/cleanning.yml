@@ -15,7 +15,7 @@ permissions:
   contents: read
 
 jobs:
-  symfony-tests:
+  verify-tests:
     name: "PHP ${{ matrix.php-version }} / SF ${{ matrix.sf-version }} / ${{ matrix.operating-system }}"
     runs-on: ${{ matrix.operating-system }}
     strategy:
@@ -32,10 +32,10 @@ jobs:
         run: |
           php -m
       - name: Get Composer Cache Directory
+        id: composer-cache
         run: |
           echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
       - name: Cache Composer packages
-        id: composer-cache
         uses: actions/cache@v3
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
