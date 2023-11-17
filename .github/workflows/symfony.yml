@@ -28,6 +28,13 @@ jobs:
       with:
         php-version: ${{ matrix.php-version }}
     - uses: actions/checkout@v3
+    - name: PHP ${{ matrix.php-version }} extensions
+      run: |
+        php -m
+    - name: Get Composer Cache Directory
+      id: composer-cache
+      run: |
+        echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
     - name: Cache Composer packages
       id: composer-cache
       uses: actions/cache@v3
@@ -40,12 +47,11 @@ jobs:
       run: |
         composer config extra.symfony.require ${{ matrix.sf-version }}
         composer update --no-ansi --no-interaction --no-scripts --no-progress -v
+        bin/console about
     - name: Init and control
       run: |
         mkdir -p data
         touch data/database.sqlite
-        php -m
-        bin/console about
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
         DATABASE_URL: sqlite:///%kernel.project_dir%/data/database.sqlite
