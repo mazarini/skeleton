@@ -19,6 +19,6 @@ class FileCommandTest extends KernelTestCase
             'command' => $command->getName(),
         ]);
         $output = $commandTester->getDisplay();
-        $this->assertStringContainsString('[OK]', $output);
+        self::assertStringContainsString('[OK]', $output);
     }
 }
