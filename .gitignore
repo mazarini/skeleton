@@ -3,7 +3,7 @@
 /bin/phpunit
 #composer.lock
 /config/*
-/phpunit.xml.dist
+#phpunit.xml.dist
 /public/index.php
 /src/Controller/.gitignore
 /src/Kernel.php

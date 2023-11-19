@@ -64,5 +64,5 @@ return (new PhpCsFixer\Config())
             ->in(__DIR__.'/tests')
             ->append([__FILE__])
     )
-    ->setCacheFile('var/php-cs-fixer.cache')
+    ->setCacheFile('var/cache/php-cs-fixer')
 ;
