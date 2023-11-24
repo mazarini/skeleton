@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body_class %}
+	{{ parent() }}
+	admin
+{% endblock %}
+
+{% block body_container %}
+	<div class="container">
+		{% block navigation %}
+			{% include "_front/_navigation.html.twig" %}
+		{% endblock %}
+		{% block body_messages %}
+			{% include "_front/_messages.html.twig" %}
+		{% endblock %}
+		{% block body %}
+			<h1>
+				{% block body_title %}{% endblock %}
+			</h1>
+			<div class="content">
+				{% block body_content %}{% endblock %}
+			</div>
+		{% endblock %}
+	</div>
+{% endblock %}

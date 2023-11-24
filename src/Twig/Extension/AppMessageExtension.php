@@ -17,26 +17,26 @@
  * You should have received a copy of the GNU General Public License
  */
 
-namespace App\Controller;
+namespace App\Twig\Extension;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use App\Twig\Runtime\AppMessageRuntime;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFilter;
+use Twig\TwigFunction;
 
-#[Route('/')]
-class HomepageController extends AbstractController
+class AppMessageExtension extends AbstractExtension
 {
-    use MessageControllerTrait;
-
-    #[Route('/', name: 'app_homepage')]
-    public function index(): Response
+    public function getFilters(): array
     {
-        $this->addFlash('success', 'message success');
-        $this->addFlash('info', 'message info');
-        $this->addFlash('warning', 'message warning');
+        return [
+            new TwigFilter('alert_class', [AppMessageRuntime::class, 'alertClass']),
+        ];
+    }
 
-        return $this->render('homepage/index.html.twig', [
-            'controller_name' => 'HomepageController',
-        ]);
+    public function getFunctions(): array
+    {
+        return [
+            new TwigFunction('alert_class', [AppMessageRuntime::class, 'alertClass']),
+        ];
     }
 }

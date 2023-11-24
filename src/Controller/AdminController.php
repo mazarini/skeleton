@@ -26,9 +26,15 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/admin')]
 class AdminController extends AbstractController
 {
+    use MessageControllerTrait;
+
     #[Route('', name: 'app_admin')]
     public function index(): Response
     {
+        $this->addFlash('success', 'message success');
+        $this->addFlash('danger', 'message danger');
+        $this->addFlash('error', 'message error');
+
         return $this->render('homepage/admin.html.twig', [
             'controller_name' => 'AdminController',
         ]);

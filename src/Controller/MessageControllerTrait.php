@@ -19,24 +19,10 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
-
-#[Route('/')]
-class HomepageController extends AbstractController
+trait MessageControllerTrait
 {
-    use MessageControllerTrait;
-
-    #[Route('/', name: 'app_homepage')]
-    public function index(): Response
+    protected function addFlash(string $type, mixed $message): void
     {
-        $this->addFlash('success', 'message success');
-        $this->addFlash('info', 'message info');
-        $this->addFlash('warning', 'message warning');
-
-        return $this->render('homepage/index.html.twig', [
-            'controller_name' => 'HomepageController',
-        ]);
+        parent::addFlash('msg', ['type' => $type, 'text' => $message]);
     }
 }

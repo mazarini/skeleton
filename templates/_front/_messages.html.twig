@@ -1,0 +1,11 @@
+<div class="alert-group">
+	{% for type,messages in app.flashes %}
+		{% for message in messages %}
+			{% if type == 'msg' %}
+				{% include "_front/_alert.html.twig" with { 'type': message.type, 'message': message.text } only %}
+			{% else %}
+				{% include "_front/_alert.html.twig" with { 'type': type, 'message': message } only %}
+			{% endif %}
+		{% endfor %}
+	{% endfor %}
+</div>

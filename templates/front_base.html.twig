@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body_class %}
+	{{ parent() }}
+	front
+{% endblock %}
+
+{% block body_container %}
+	{% block navigation %}
+		{% include "_front/_navigation.html.twig" %}
+	{% endblock %}
+	<div class="container">
+		{% block header_container %}
+			{% block header %}
+				{% include "_front/_header.html.twig" %}
+			{% endblock %}
+		{% endblock %}
+		{% block body_messages %}
+			{% include "_front/_messages.html.twig" %}
+		{% endblock %}
+		{% block body %}
+			<h1>
+				{% block body_title %}{% endblock %}
+			</h1>
+			<div class="content">
+				{% block body_header %}{% endblock %}
+				{% block body_content %}{% endblock %}
+				{% block body_footer %}{% endblock %}
+			</div>
+		{% endblock %}
+		{% block footer %}
+			{% include "_front/_footer.html.twig" %}
+		{% endblock %}
+	</div>
+{% endblock %}

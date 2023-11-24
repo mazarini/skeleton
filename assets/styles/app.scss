@@ -1,7 +1,8 @@
+// Overidde some variables
 @import "./variables";
 
 @import "~bootstrap/scss/bootstrap";
 
-body {
-    background-color: lightgray;
-}
+@import "./body";
+@import "./alert";
+@import "./body_content";
