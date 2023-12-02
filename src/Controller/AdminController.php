@@ -19,6 +19,7 @@
 
 namespace App\Controller;
 
+use Mazarini\MessageBundle\Controller\MessageControllerTrait;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;

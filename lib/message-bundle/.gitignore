@@ -1,0 +1,47 @@
+###> local ###
+/bin/console
+/bin/phpunit
+/tests/templates/base.html.twig
+/vendor
+#composer.lock
+/config/*
+!config/packages
+/config/packages/*
+!config/packages/twig.yaml
+!config/bundles.php
+!config/services.yaml
+#phpunit.xml.dist
+/public/build/*
+!public/build/entrypoints.json
+!public/build/manifest.json
+/public/index.php
+/src/Controller/.gitignore
+/src/Kernel.php
+/symfony.lock
+/tests/bootstrap.php
+/var/*
+###< local ###
+
+###> symfony/phpunit-bridge ###
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###
+
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+###> phpstan/phpstan ###
+phpstan.neon
+###< phpstan/phpstan ###

@@ -1,0 +1,78 @@
+{
+    "name": "mazarini/message-bundle",
+    "description": "Display alerts.",
+    "type": "symfony-bundle",
+    "minimum-stability": "dev",
+    "extra": {
+        "symfony": {
+            "allow-contrib": false,
+            "require": "7.1.*",
+            "docker": false
+        },
+        "public-dir": "tests/public"
+    },
+    "require": {
+        "php": ">=8.1",
+        "ext-ctype": "*",
+        "ext-iconv": "*",
+        "symfony/console": "7.1.*",
+        "symfony/framework-bundle": "7.1.*",
+        "symfony/runtime": "7.1.*",
+        "symfony/twig-bundle": "7.1.*",
+        "twig/extra-bundle": "^2.12|^3.0",
+        "twig/twig": "^2.12|^3.0"
+    },
+    "require-dev": {
+        "phpstan/phpstan-symfony": "*",
+        "phpunit/phpunit": "^9.5",
+        "symfony/browser-kit": "7.1.*",
+        "symfony/css-selector": "7.1.*",
+        "symfony/dotenv": "7.1.*",
+        "symfony/flex": "^2.4",
+        "symfony/phpunit-bridge": "^6.3",
+        "symfony/yaml": "7.1.*",
+        "symplify/config-transformer": "^12.1"
+    },
+    "license": "GPL-3.0-or-later",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Mazarini\\MessageBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Mazarini\\MessageBundle\\Tests\\": "tests/tests",
+            "App\\": "tests/src/"
+        }
+    },
+    "replace": {},
+    "scripts": {
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+        },
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ]
+    },
+    "conflict": {
+        "symfony/symfony": "*"
+    },
+    "authors": [
+        {
+            "name": "Mazarini",
+            "email": "mazarini@protonmail.com"
+        }
+    ],
+    "config": {
+        "allow-plugins": {
+            "symfony/flex": true,
+            "symfony/runtime": true
+        },
+        "sort-packages": true
+    }
+}

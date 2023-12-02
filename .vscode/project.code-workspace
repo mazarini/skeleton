@@ -4,6 +4,10 @@
 			"name": "project",
 			"path": "../"
 		},
+		{
+			"name": "message",
+			"path": "../lib/message-bundle"
+		},
 	],
 	"settings": {
 		"editor.formatOnSave": true,

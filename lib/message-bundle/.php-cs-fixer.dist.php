@@ -2,14 +2,14 @@
 
 /*
  * Copyright (C) 2023 Mazarini <mazarini@protonmail.com>.
- * This file is part of mazarini/skeleton.
+ * This file is part of mazarini/message-bundle.
  *
- * mazarini/skeleton is free software: you can redistribute it and/or
+ * mazarini/message-bundle is free software: you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or (at your
  * option) any later version.
  *
- * mazarini/skeleton is distributed in the hope that it will be useful,
+ * mazarini/message-bundle is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
  * or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
  * more details.
@@ -20,7 +20,7 @@
 if (!file_exists(__DIR__.'/src')) {
     exit(0);
 }
-$package = 'skeleton';
+$package = 'message-bundle';
 $copyright = '2023';
 $fileHeaderComment = <<<COMMENT
 Copyright (C) {$copyright} Mazarini <mazarini@protonmail.com>.

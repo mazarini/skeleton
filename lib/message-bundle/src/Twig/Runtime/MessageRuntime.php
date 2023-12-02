@@ -2,14 +2,14 @@
 
 /*
  * Copyright (C) 2023 Mazarini <mazarini@protonmail.com>.
- * This file is part of mazarini/skeleton.
+ * This file is part of mazarini/message-bundle.
  *
- * mazarini/skeleton is free software: you can redistribute it and/or
+ * mazarini/message-bundle is free software: you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or (at your
  * option) any later version.
  *
- * mazarini/skeleton is distributed in the hope that it will be useful,
+ * mazarini/message-bundle is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
  * or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
  * more details.
@@ -17,11 +17,11 @@
  * You should have received a copy of the GNU General Public License
  */
 
-namespace App\Twig\Runtime;
+namespace Mazarini\MessageBundle\Twig\Runtime;
 
 use Twig\Extension\RuntimeExtensionInterface;
 
-class AppMessageRuntime implements RuntimeExtensionInterface
+class MessageRuntime implements RuntimeExtensionInterface
 {
     private string $default = 'danger';
     /**
@@ -32,27 +32,14 @@ class AppMessageRuntime implements RuntimeExtensionInterface
     /**
      * __construct.
      *
-     * @param array<string,string>|null $types
+     * @param array<string,string> $types
      *
      * @return void
      */
-    public function __construct(array $types = null)
+    public function __construct(array $types, string $default)
     {
-        if (null === $types) {
-            $this->types = [
-                'primary' => 'primary',
-                'secondary' => 'secondary',
-                'success' => 'success',
-                'danger' => 'danger',
-                'error' => 'danger',
-                'warning' => 'warning',
-                'info' => 'info',
-                'light' => 'light',
-                'dark' => 'dark',
-            ];
-        } else {
-            $this->types = $types;
-        }
+        $this->types = $types;
+        $this->default = $default;
     }
 
     /**

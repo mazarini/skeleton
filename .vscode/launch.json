@@ -8,7 +8,7 @@
             "name": "Listen for XDebug",
             "type": "php",
             "request": "launch",
-            "port": 9000
+            "port": 9003
         },
         {
             "name": "Launch currently open script",
@@ -16,7 +16,7 @@
             "request": "launch",
             "program": "${file}",
             "cwd": "${fileDirname}",
-            "port": 9000
+            "port": 9003
         },
         {
             "name": "Launch phpunit",
@@ -24,15 +24,15 @@
             "request": "launch",
             "program": "${workspaceFolder}/bin/phpunit",
             "cwd": "${workspaceFolder}",
-            "port": 9000
+            "port": 9003
         },
         {
             "name": "Launch console",
             "type": "php",
             "request": "launch",
-            "program": "${workspaceFolder}/bin/console",
+            "program": "${workspaceFolder}/lib/message-bundle/bin/console",
             "cwd": "${workspaceFolder}",
-            "port": 9000
+            "port": 9003
         }
     ]
 }

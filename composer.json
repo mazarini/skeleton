@@ -17,6 +17,7 @@
         "doctrine/doctrine-bundle": "^2.11",
         "doctrine/doctrine-migrations-bundle": "^3.3",
         "doctrine/orm": "^2.17",
+        "mazarini/message-bundle": "*",
         "symfony/console": "^6.3|^7.0",
         "symfony/dotenv": "^6.3|^7.0",
         "symfony/runtime": "^6.3|^7.0",
@@ -47,6 +48,15 @@
     },
     "license": "GPL-3.0-or-later",
     "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "path",
+            "url": "lib/*",
+            "options": {
+                "reference": "config"
+            }
+        }
+    ],
     "autoload": {
         "psr-4": {
             "Mazarini\\Skeleton\\": "lib/"

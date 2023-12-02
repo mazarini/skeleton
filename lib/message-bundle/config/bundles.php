@@ -17,12 +17,9 @@
  * You should have received a copy of the GNU General Public License
  */
 
-namespace App\Controller;
-
-trait MessageControllerTrait
-{
-    protected function addFlash(string $type, mixed $message): void
-    {
-        parent::addFlash('msg', ['type' => $type, 'text' => $message]);
-    }
-}
+return [
+    Symfony\Bundle\FrameworkBundle\FrameworkBundle::class => ['all' => true],
+    Symfony\Bundle\TwigBundle\TwigBundle::class => ['all' => true],
+    Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
+    Mazarini\MessageBundle\MazariniMessageBundle::class => ['all' => true],
+];
