@@ -46,12 +46,15 @@ class MazariniMessageBundle extends AbstractBundle
                 __DIR__.'/Entity/',
                 __DIR__.'/Kernel.php',
             ]);
+        $services->set(self::class)
+            ->public();
         $services->set(MessageExtension::class)
             ->tag('twig.extension')
             ->public();
         $services->set(MessageRuntime::class)
             ->tag('twig.runtime')
             ->public()
+            ->arg('$closable', $config['closable'])
             ->arg('$types', $config['types'])
             ->arg('$default', $config['default']);
     }
@@ -61,6 +64,7 @@ class MazariniMessageBundle extends AbstractBundle
         // if the configuration is short, consider adding it in this class
         $definition->rootNode()
             ->children()
+            ->booleanNode('closable')->defaultValue(true)->end()
             ->scalarNode('default')->defaultValue('alert-danger')->end()
             ->arrayNode('types')
             ->useAttributeAsKey('name')

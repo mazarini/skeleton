@@ -17,27 +17,12 @@
  * You should have received a copy of the GNU General Public License
  */
 
-namespace Mazarini\MessageBundle\Twig\Extension;
+use Symfony\Component\Dotenv\Dotenv;
 
-use Mazarini\MessageBundle\Twig\Runtime\MessageRuntime;
-use Twig\Extension\AbstractExtension;
-use Twig\TwigFilter;
-use Twig\TwigFunction;
+require dirname(__DIR__).'/vendor/autoload.php';
 
-class MessageExtension extends AbstractExtension
-{
-    public function getFilters(): array
-    {
-        return [
-            new TwigFilter('alert_class', [MessageRuntime::class, 'alertClass']),
-        ];
-    }
-
-    public function getFunctions(): array
-    {
-        return [
-            new TwigFunction('alert_class', [MessageRuntime::class, 'alertClass']),
-            new TwigFunction('isClosable', [MessageRuntime::class, 'isClosable']),
-        ];
-    }
+if (file_exists(dirname(__DIR__).'/config/bootstrap.php')) {
+    require dirname(__DIR__).'/config/bootstrap.php';
+} elseif (method_exists(Dotenv::class, 'bootEnv')) {
+    (new Dotenv())->bootEnv(dirname(__DIR__).'/.env');
 }

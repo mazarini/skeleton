@@ -1,0 +1,24 @@
+{
+	"folders": [
+		{
+			"name": "message-bundle",
+			"path": "../../"
+		},
+	],
+	"settings": {
+		"editor.formatOnSave": true,
+		"files.associations": {
+			".env.test": "dotenv",
+			"*.code-workspace": "json",
+			"composer.lock": "json",
+			"symfony.lock": "json",
+			"*phpstan.neon.dist": "yaml",
+			".scrutinizer": "yaml",
+			".php_cs.dist": "php",
+			"console": "php",
+			"phpunit": "php"
+		},
+		"files.insertFinalNewline": true,
+		"files.trimTrailingWhitespace": true,
+	}
+}

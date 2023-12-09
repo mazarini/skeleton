@@ -26,9 +26,7 @@ class RuntimeTest extends TestCase
 {
     public function testMessageRuntime(): void
     {
-        $message = new MessageRuntime([], '');
-        $message->setDefault('default-class');
-        $message->setTypes(['type' => 'class-type']);
+        $message = new MessageRuntime(true, ['type' => 'class-type'], 'default-class');
         $this->assertSame($message->alertClass('type'), 'class-type');
         $this->assertSame($message->alertClass('x'), 'default-class');
     }

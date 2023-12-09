@@ -2,11 +2,11 @@
     "name": "mazarini/skeleton",
     "description": "Project's skeleton.",
     "type": "project",
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "7.1.*",
+            "require": "7.0.*",
             "docker": false
         }
     },
@@ -17,7 +17,7 @@
         "doctrine/doctrine-bundle": "^2.11",
         "doctrine/doctrine-migrations-bundle": "^3.3",
         "doctrine/orm": "^2.17",
-        "mazarini/message-bundle": "*",
+        "mazarini/message-bundle": "*@dev",
         "symfony/console": "^6.3|^7.0",
         "symfony/dotenv": "^6.3|^7.0",
         "symfony/runtime": "^6.3|^7.0",

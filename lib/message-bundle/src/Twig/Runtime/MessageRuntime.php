@@ -23,7 +23,8 @@ use Twig\Extension\RuntimeExtensionInterface;
 
 class MessageRuntime implements RuntimeExtensionInterface
 {
-    private string $default = 'danger';
+    private bool $closable;
+    private string $default;
     /**
      * @var array<string,string>
      */
@@ -36,10 +37,19 @@ class MessageRuntime implements RuntimeExtensionInterface
      *
      * @return void
      */
-    public function __construct(array $types, string $default)
+    public function __construct(bool $closable, array $types, string $default)
     {
+        $this->closable = $closable;
         $this->types = $types;
         $this->default = $default;
+    }
+
+    /**
+     * alertClass.
+     */
+    public function alertClass(string $type): string
+    {
+        return $this->types[$type] ?? $this->default;
     }
 
     /**
@@ -53,22 +63,17 @@ class MessageRuntime implements RuntimeExtensionInterface
     }
 
     /**
-     * setTypes.
-     *
-     * @param array<string,string> $types
+     * setClosable.
      */
-    public function setTypes(array $types): self
+    public function setClosable(bool $closable): self
     {
-        $this->types = $types;
+        $this->closable = $closable;
 
         return $this;
     }
 
-    /**
-     * alertClass.
-     */
-    public function alertClass(string $type): string
+    public function isClosable(): bool
     {
-        return $this->types[$type] ?? $this->default;
+        return $this->closable;
     }
 }

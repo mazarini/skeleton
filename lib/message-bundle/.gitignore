@@ -1,24 +1,7 @@
 ###> local ###
-/bin/console
-/bin/phpunit
-/tests/templates/base.html.twig
-/vendor
-#composer.lock
-/config/*
-!config/packages
-/config/packages/*
-!config/packages/twig.yaml
-!config/bundles.php
-!config/services.yaml
-#phpunit.xml.dist
-/public/build/*
-!public/build/entrypoints.json
-!public/build/manifest.json
-/public/index.php
+/public
 /src/Controller/.gitignore
 /src/Kernel.php
-/symfony.lock
-/tests/bootstrap.php
 /var/*
 ###< local ###
 
@@ -41,7 +24,3 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
-
-###> phpstan/phpstan ###
-phpstan.neon
-###< phpstan/phpstan ###
