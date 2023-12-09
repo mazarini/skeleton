@@ -1,17 +1,9 @@
 ###> local ###
-/bin/console
-/bin/phpunit
-#composer.lock
-/config/*
-#phpunit.xml.dist
 /public/build/*
 !public/build/entrypoints.json
 !public/build/manifest.json
-/public/index.php
+!public/index.php
 /src/Controller/.gitignore
-/src/Kernel.php
-/symfony.lock
-/tests/bootstrap.php
 /var/*
 ###< local ###
 

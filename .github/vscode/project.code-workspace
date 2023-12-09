@@ -2,11 +2,11 @@
 	"folders": [
 		{
 			"name": "project",
-			"path": "../"
+			"path": "../../"
 		},
 		{
 			"name": "message",
-			"path": "../lib/message-bundle"
+			"path": "../../lib/message-bundle"
 		},
 	],
 	"settings": {

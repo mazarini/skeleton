@@ -44,16 +44,15 @@ jobs:
             ${{ runner.os }}-composer-
       - name: Install Dependencies.
         run: |
+          composer config minimum-stability dev
           composer config extra.symfony.require ${{ matrix.sf-version }}
-          composer update --no-ansi --no-interaction --no-scripts --no-progress -v
-          bin/console about
-      - name: Init and control
-        run: |
-          mkdir -p data
-          touch data/database.sqlite
+          composer update --no-ansi --no-interaction --no-scripts --no-progress
+          composer global require phpstan/phpstan-symfony
+          composer global require friendsofphp/php-cs-fixer
+          php bin/console about
       - name: Execute tests (Unit and Feature tests) via PHPUnit
-        env:
-          DATABASE_URL: sqlite:///%kernel.project_dir%/data/database.sqlite
-        run: vendor/bin/phpunit
+        run: php vendor/bin/phpunit
       - name: Execute phpstan
-        run: vendor/bin/phpstan
+        run: php ~/.composer/vendor/bin/phpstan
+      - name: Execute php-cs-fixer
+        run: php ~/.composer/vendor/bin/php-cs-fixer fix

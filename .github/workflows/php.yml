@@ -3,7 +3,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Symfony
+name: PHP
 
 on:
   push:
@@ -21,8 +21,8 @@ jobs:
     strategy:
       matrix:
         operating-system: ["ubuntu-latest"]
-        sf-version: ["6.3.*", "6.4.*", "7.0.*"]
-        php-version: ["8.2"]
+        sf-version: ["7.1.*"]
+        php-version: ["8.2","8.3","8.4"]
     steps:
       - uses: shivammathur/setup-php@v2
         with:
@@ -44,7 +44,7 @@ jobs:
             ${{ runner.os }}-composer-
       - name: Install Dependencies.
         run: |
-          composer config minimum-stability stable
+          composer config minimum-stability dev
           composer config extra.symfony.require ${{ matrix.sf-version }}
           composer update --no-ansi --no-interaction --no-scripts --no-progress
           php bin/console about
