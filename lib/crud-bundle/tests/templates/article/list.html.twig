@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{%  block title %}Article index{% endblock %}
+
+{% block body %}
+    <h1>Article index</h1>
+    {% embed '@MazariniCrud/_list.html.twig' with { 'nbData': 2, 'paginator': paginator } only %}
+        {% block header %}
+            <th>Id</th>
+            <th>Label</th>
+            <th>actions</th>
+        {% endblock %}
+        {% block data  %}
+            <td>{{ entity.id }}</td>
+            <td>{{ entity.label }}</td>
+        {% endblock %}
+        {% block show_href %}{{ path('app_article_show', {'id': entity.id}) }}{% endblock %}
+        {% block no_record_text %}no articles{% endblock %}
+        {% block new_href %}{{ path('app_article_new') }}{% endblock %}
+        {% block href_first %}{{ path('app_article_page', {'page': 1}) }}{% endblock %}
+        {% block href_page %}{{ path('app_article_page', {'page': page}) }}{% endblock %}
+        {% block href_last %}{{ path('app_article_page', {'page': paginator.lastPage}) }}{% endblock %}
+    {% endembed %}
+
+
+{% endblock %}

@@ -25,15 +25,9 @@ use Mazarini\EntityBundle\Entity\EntityInterface;
 use Mazarini\EntityBundle\Page\Paginator;
 
 /**
- * @template E of EntityInterface
  *
- * @extends ServiceEntityRepository<E>
+ * @extends ServiceEntityRepository<EntityInterface>
  *
- * @method E|null find($id, $lockMode = null, $lockVersion = null)
- * @method E|null findOneBy(array $criteria, array $orderBy = null)
- * @method int    count(array $criteria = [])
- * @method E[]    findAll()
- * @method E[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class EntityRepository extends ServiceEntityRepository
 {
@@ -42,7 +36,7 @@ class EntityRepository extends ServiceEntityRepository
     /**
      * __construct.
      *
-     * @param class-string<E> $className
+     * @param class-string<EntityInterface> $className
      *
      * @return void
      */

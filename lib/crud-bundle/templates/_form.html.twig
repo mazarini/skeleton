@@ -1,0 +1,8 @@
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+
+    <div class="mt-2 d-flex justify-content-evenly">
+        <a class="btn btn-primary" href="{% block back_href %}{% endblock %}" role="button">{% block return_text %}back{% endblock %}</a>
+        <button class="btn btn-primary">{% block save_text %}Save{% endblock %}</button>
+    </div>
+{{ form_end(form) }}

@@ -1,20 +1,8 @@
 {
 	"folders": [
 		{
-			"name": "==== project ====",
+			"name": "entity-bundle",
 			"path": "../../"
-		},
-		{
-			"name": "==== crud ====",
-			"path": "../../lib/crud-bundle"
-		},
-		{
-			"name": "==== entity ====",
-			"path": "../../lib/entity-bundle"
-		},
-		{
-			"name": "==== message ====",
-			"path": "../../lib/message-bundle"
 		},
 	],
 	"settings": {

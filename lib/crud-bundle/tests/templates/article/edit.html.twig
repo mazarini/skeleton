@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{%  block title %}
+{{ entity.new ? 'New Article':'Edit Article' }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ entity.new ? 'New Article':'Edit Article' }}</h1>
+    {% embed '@MazariniCrud/_form.html.twig' with { 'form': form, 'entity': entity } only %}
+        {% block back_href %}{{entity.new ? path('app_article_index') : path('app_article_show', {'id': entity.id}) }}{% endblock %}
+        {% block return_text %}back{% endblock %}
+        {% block save_text %}{{ entity.new ? 'Create':'Update' }}{% endblock %}
+    {% endembed %}
+{% endblock %}
