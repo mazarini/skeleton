@@ -86,7 +86,7 @@ abstract class CrudController extends AbstractController
             return $this->redirectToShow();
         }
 
-        return $this->render('article/edit.html.twig', [
+        return $this->render($this->editTemplate, [
             'entity' => $entity,
             'form' => $form,
         ]);

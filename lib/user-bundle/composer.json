@@ -1,0 +1,98 @@
+{
+    "name": "mazarini/user-bundle",
+    "description": "User base.",
+    "type": "symfony-bundle",
+    "minimum-stability": "dev",
+    "extra": {
+        "symfony": {
+            "allow-contrib": false,
+            "require": "7.1.*",
+            "docker": false
+        },
+        "public-dir": "tests/public"
+    },
+    "require": {
+        "php": ">=8.1",
+        "ext-ctype": "*",
+        "ext-iconv": "*",
+        "doctrine/doctrine-bundle": "^2.11",
+        "doctrine/doctrine-migrations-bundle": "^3.3",
+        "doctrine/orm": "^2.17",
+        "mazarini/crud-bundle": "dev-master",
+        "mazarini/message-bundle": "dev-master",
+        "symfony/console": "^6.3|^7.0",
+        "symfony/form": "7.1.*",
+        "symfony/framework-bundle": "^6.3|^7.0",
+        "symfony/runtime": "^6.3|^7.0",
+        "symfony/security-bundle": "7.1.*",
+        "symfony/security-csrf": "7.1.*"
+    },
+    "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.5",
+        "mazarini/entity-bundle": "@dev",
+        "phpunit/phpunit": "^9.5",
+        "symfony/browser-kit": "^6.3|^7.0",
+        "symfony/css-selector": "^6.3|^7.0",
+        "symfony/debug-bundle": "7.1.*",
+        "symfony/dotenv": "^6.3|^7.0",
+        "symfony/flex": "^2.4",
+        "symfony/maker-bundle": "^1.50",
+        "symfony/monolog-bundle": "^3.0",
+        "symfony/phpunit-bridge": "^7.0",
+        "symfony/stopwatch": "7.1.*",
+        "symfony/twig-bundle": "7.1.*",
+        "symfony/validator": "7.1.*",
+        "symfony/web-profiler-bundle": "7.1.*",
+        "symfony/yaml": "^6.3|^7.0",
+        "twig/extra-bundle": "^2.12|^3.0",
+        "twig/twig": "^2.12|^3.0"
+    },
+    "license": "GPL-3.0-or-later",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Mazarini\\UserBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Mazarini\\UserBundle\\Tests\\": "tests/tests",
+            "App\\": "tests/src/"
+        }
+    },
+    "replace": {},
+    "scripts": {
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+        },
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Mazarini",
+            "email": "mazarini@protonmail.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../*",
+            "options": {
+                "reference": "config"
+            }
+        }
+    ],
+    "config": {
+        "allow-plugins": {
+            "symfony/flex": true,
+            "symfony/runtime": true
+        },
+        "sort-packages": true
+    }
+}

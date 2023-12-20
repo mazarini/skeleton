@@ -16,6 +16,10 @@
 			"name": "==== message ====",
 			"path": "../../lib/message-bundle"
 		},
+		{
+			"name": "==== user ====",
+			"path": "../../lib/user-bundle"
+		},
 	],
 	"settings": {
 		"editor.formatOnSave": true,

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User{% endblock %}
+
+{% block body %}
+<h1>User</h1>
+
+<table class="table">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{ entity.email }}</td>
+        </tr>
+        <tr>
+            <th>PublicName</th>
+            <td>{{ entity.publicName }}</td>
+        </tr>
+        <tr>
+            <th>Roles</th>
+            <td>{{ entity.RolesToString }}</td>
+        </tr>
+    </tbody>
+</table>
+<div class="mt-2 d-flex justify-content-evenly">
+    <a class="btn btn-primary" href="{{ path('app_admin_user_index') }}">Back</a>
+    <a class="btn btn-primary" href="{{ path('app_admin_user_edit', {'id': entity.id}) }}">Edit</a>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
+</div>
+{% endblock %}
+
+{% block static %}
+{{ parent() }}
+{% embed '@MazariniCrud/_delete_form.html.twig' %}
+{% block delete_href %}{{ path('app_admin_user_delete', {'id': entity.id}) }}{% endblock %}
+{% block delete_text %}{{ parent() }}{% endblock %}
+{% endembed %}
+{% endblock %}

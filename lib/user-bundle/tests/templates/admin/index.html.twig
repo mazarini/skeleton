@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+<h1>User index</h1>
+{% embed '@MazariniCrud/_list.html.twig' with { 'nbData': 4, 'paginator': paginator } only %}
+{% block header %}
+<th>Id</th>
+<th>Email</th>
+<th>PublicName</th>
+<th>Roles</th>
+<th></th>
+{% endblock %}
+{% block data %}
+<td>{{ entity.id }}</td>
+<td>{{ entity.email }}</td>
+<td>{{ entity.publicName }}</td>
+<td>{{ entity.RolesToString }}</td>
+{% endblock %}
+{% block show_href %}{{ path('app_admin_user_show', {'id': entity.id}) }}{% endblock %}
+{% block no_record_text %}no registred users{% endblock %}
+{% block new_href %}{{ path('app_admin_user_new') }}{% endblock %}
+{% block href_first %}{{ path('app_admin_user_page', {'page': 1}) }}{% endblock %}
+{% block href_page %}{{ path('app_admin_user_page', {'page': page}) }}{% endblock %}
+{% block href_last %}{{ path('app_admin_user_page', {'page': paginator.lastPage}) }}{% endblock %}
+{% endembed %}
+
+
+{% endblock %}
