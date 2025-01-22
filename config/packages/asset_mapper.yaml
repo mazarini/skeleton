@@ -1,0 +1,15 @@
+framework:
+    asset_mapper:
+        # The paths to make available to the asset mapper.
+        paths:
+            - assets/
+            - node_modules/
+            - var/sass/
+        missing_import_mode: strict
+        # The directory to store JavaScript vendors.
+        vendor_dir: "%kernel.project_dir%/node_modules"
+
+when@prod:
+    framework:
+        asset_mapper:
+            missing_import_mode: warn

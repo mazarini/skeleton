@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * Returns the importmap for this application.
+ *
+ * - "path" is a path inside the asset mapper system. Use the
+ *     "debug:asset-map" command to see the full list of paths.
+ *
+ * - "entrypoint" (JavaScript only) set to true for any module that will
+ *     be used as an "entrypoint" (and passed to the importmap() Twig function).
+ *
+ * The "importmap:require" command can be used to add new entries to this file.
+ */
+return [
+    'app' => [
+        'path' => './assets/app.js',
+        'entrypoint' => true,
+    ],
+    'twbs_bootstrap' => [
+        'path' => './assets/twbs_bootstrap.js',
+        'entrypoint' => true,
+    ],
+    'bootstrap/js/dist/alert' => [
+        'version' => '5.3.3',
+    ],
+    'bootstrap/js/dist/collapse' => [
+        'version' => '5.3.3',
+    ],
+    'bootstrap/js/dist/dropdown' => [
+        'version' => '5.3.3',
+    ],
+    'bootstrap/js/dist/modal' => [
+        'version' => '5.3.3',
+    ],
+    'bootstrap/js/dist/tab' => [
+        'version' => '5.3.3',
+    ],
+    'bootstrap/js/dist/tooltip' => [
+        'version' => '5.3.3',
+    ],
+    '@popperjs/core' => [
+        'version' => '2.11.8',
+    ],
+];

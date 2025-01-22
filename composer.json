@@ -12,7 +12,8 @@
         "symfony/flex": "^2.4",
         "symfony/framework-bundle": "^7.2",
         "symfony/runtime": "^7.2",
-        "symfony/yaml": "^7.2"
+        "symfony/yaml": "^7.2",
+        "symfonycasts/sass-bundle": "^0.8.2"
     },
     "require-dev": {
         "symfony/debug-bundle": "^7.2",
@@ -47,7 +48,9 @@
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+            "assets:install %PUBLIC_DIR%": "symfony-cmd",
+            "sass:build": "symfony-cmd",
+            "importmap:install": "symfony-cmd"
         },
         "post-install-cmd": [
             "@auto-scripts"
