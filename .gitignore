@@ -1,3 +1,6 @@
+###> App ###
+/node_modules/
+###< App ###
 
 ###> symfony/framework-bundle ###
 /.env.local
