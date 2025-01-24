@@ -5,6 +5,7 @@
          cacheDirectory="var/cache/phpunit"
          executionOrder="depends,defects"
          shortenArraysForExportThreshold="10"
+         colors="true"
          requireCoverageMetadata="true"
          beStrictAboutCoverageMetadata="true"
          beStrictAboutOutputDuringTests="true"
