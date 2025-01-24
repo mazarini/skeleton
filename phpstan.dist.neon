@@ -6,15 +6,15 @@ includes:
 
 parameters:
     bootstrapFiles:
-        - vendor/bin/.phpunit/phpunit/vendor/autoload.php
+        - vendor/autoload.php
 
-    doctrine:
-        objectManagerLoader: tests/object-manager.php
+#   doctrine:
+#       objectManagerLoader: tests/object-manager.php
 
-    ignoreErrors:
-        - identifier: missingType.generics
+#   ignoreErrors:
+#       - identifier: missingType.generics
 
-    level: 6
+    level: max
     paths:
         - bin
         - config
