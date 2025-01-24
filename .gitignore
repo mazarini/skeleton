@@ -1,10 +1,13 @@
 
+/var/*
+!var/data/
+
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
 /.env.*.local
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
-/var/
+#var/
 /vendor/
 ###< symfony/framework-bundle ###
