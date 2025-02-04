@@ -1,6 +1,8 @@
 
 /var/*
 !var/data/
+/var/data/dev.db
+/var/data/test.db
 
 ###> symfony/framework-bundle ###
 /.env.local

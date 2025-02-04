@@ -36,6 +36,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->id;
     }
 
+    public function isNew(): bool
+    {
+        return null === $this->id;
+    }
+
     public function getUsername(): ?string
     {
         return $this->username;
@@ -56,6 +61,26 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getUserIdentifier(): string
     {
         return (string) $this->username;
+    }
+
+    public function isAdmin(): bool
+    {
+        return in_array('ROLE_ADMIN', $this->roles, true);
+    }
+    public function setAdmin(bool $admin): static
+    {
+        $key = array_search('ROLE_ADMIN', $this->roles, true);
+        if ($admin) {
+            if ($key === false) {
+                $this->roles[] = 'ROLE_ADMIN';
+            }
+        } else {
+            if ($key !== false) {
+                unset($this->roles[$key]);
+            }
+        }
+
+        return $this;
     }
 
     /**
