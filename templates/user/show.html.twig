@@ -16,8 +16,14 @@
                 <td>{{ user.username }}</td>
             </tr>
             <tr>
-                <th>Roles</th>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                <th>Admin</th>
+                <td>
+                    {% if user.admin %}
+                        Yes
+                    {% else %}
+                        No
+                    {% endif %}
+                </td>
             </tr>
             <tr>
                 <th>Password</th>

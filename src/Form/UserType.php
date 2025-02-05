@@ -14,22 +14,29 @@ class UserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder
-            ->add('username', TextType::class, [
+        if ($options['data']->isnew()) {
+            $builder->add('username', TextType::class, [
                 'label' => 'Username',
                 'required' => true,
-            ])
-            ->add('admin', CheckboxType::class, [
-                'label' => 'Admin',
-                //    'empty_data' => 0,
-                'required' => false,
-            ])
-            ->add('plain_password', PasswordType::class, [
+            ]);
+        } else {
+            $builder->add('username', TextType::class, [
+                'label' => 'Username',
+                'disabled' => true,
+            ]);
+        }
+        $builder->add('admin', CheckboxType::class, [
+            'label' => 'Admin',
+            //    'empty_data' => 0,
+            'required' => false,
+        ]);
+        if ($options['data']->isnew()) {
+            $builder->add('plaintext_password', PasswordType::class, [
                 'label' => 'Password',
                 'required' => true,
                 'mapped' => false,
-            ])
-        ;
+            ]);
+        }
     }
 
     public function configureOptions(OptionsResolver $resolver): void
