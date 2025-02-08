@@ -1,16 +1,16 @@
 <!DOCTYPE html>
+{% block variables %}{% endblock %}
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>
-			{% block title %}Welcome!
+			{% block head_title %}
+				{{ title }}
 			{% endblock %}
 		</title>
-
 		<!-- stylesheets -->
 		{% block stylesheets %}{% endblock %}
 		<!-- /stylesheets -->
-
 		<!-- javascripts -->
 		{% block javascripts %}
 			{% block importmap %}
@@ -19,7 +19,8 @@
 		{% endblock %}
 		<!-- /javascripts -->
 	</head>
-	<body>
-		{% block body %}{% endblock %}
-	</body>
+	<body id="body" class="{{ bodyClass(app.request) }}">
+        {% block body %}{% endblock %}
+        {{ dump(bodyClass(app.request)) }}
+    </body>
 </html>
